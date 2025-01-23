@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("h:mm", Locale.US);
         String s = sdf.format(d);
+        if(s.length() == 4)
+            s = "!" + s; // ! = all off so width stays same as 5 character times
         txt.setText(s);
         SimpleDateFormat sdf2 = new SimpleDateFormat("a", Locale.US);
         String s2 = sdf2.format(d);
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         txt = findViewById(R.id.txtview);
         ampm = findViewById(R.id.ampm);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
     }
 
     @Override
